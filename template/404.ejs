@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="index.js"></script>
+    <style>
+    .text-container{
+            margin: auto;
+            background-color:salmon;
+            text-align: center;
+            margin-top: 20%;
+            color: black;
+    }
+    .lien{
+        color: black;
+        background-color: #ddd;
+        border: 1px solid black;
+        border-radius:4px ;
+        padding: 10px 10px 10px 10px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .lien:hover{
+      background-color: #ddd;
+    }
+    .erreur{
+        text-decoration: none;
+        color: blue;
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="text-container"> 
+        <% if(locals.mailerror){ %>
+            <%= mailerror %> Réessayer 
+        <% } %>
+        <% if(locals.error){ %>
+            <%= error %>
+        <% } %>
+    </div>
+
+    <a href="/" class="lien">Retour</a>
+
+</body>
+</html>

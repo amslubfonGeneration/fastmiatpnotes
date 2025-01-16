@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envoyé</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="index.js"></script>
+    <style>
+        .text-container{
+            margin: auto;
+            background-color:aliceblue;
+            text-align: center;
+            margin-top: 20%;
+            color: black;
+        }
+        a{
+            color: black;
+            border: 1px solid black;
+            border-radius:4px ;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            cursor: pointer;
+            background-color:#ddd;
+        }
+        img{
+            width: 50px;
+            border-radius: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <% if(locals.message){ %>
+        <div class="text-container">
+            <%= locals.message %>
+        </div>
+    <% } %>
+    <% if(locals.connect){ %>
+        <div class="text-container">
+            <%= locals.connect %>
+        </div>
+        <a href="/administration">Administrer</a>
+    <% } %>
+    <% if(locals.message === `Mise a jours de mot de pass reussit`){ %>
+        <a href="/connect">Connecter vous.</a>
+    <% } %>
+    <a href="/">Retour</a>
+</body>
+</html>

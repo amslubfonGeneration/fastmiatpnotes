@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>administration</title>
+    <link rel="stylesheet" href="contact.css">
+    <script type="module" src="administration.js"></script>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="contact.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        img{
+            display: flex;
+            position: fixed;
+        }
+        a{
+            color: black;
+            background-color: #ddd;
+            border: 1px solid black;
+            border-radius:4px ;
+            padding: 10px 10px 10px 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a:hover{
+        background-color: #ddd;
+        }
+        .error{
+            border-radius: 5px;
+                background-color: salmon;
+                text-align: center;
+                border: 2px solid black;
+                width: 30%px;
+                margin: 0 auto;
+                padding-bottom: 20px;
+                padding-top: 20px;
+            }
+            .toggle-password {
+                cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+    <% if(locals.connect){ %>
+        <img src="con2.jpg" alt="img" class="logo connection">
+    <% } %>
+    <% if(locals.error_1){ %>
+        <div class="error">
+            <%= error_1 %>
+        </div>
+    <% } %>    
+    <form action="" method="post" id="monFormulaire">
+        <section>
+            <label>Informations de l'etudiant</label><br>
+            <input type="text" name="Nom" placeholder="nom" required><br>
+            <input type="text" placeholder="Prenom" name="prenom" required><br>
+            <input type="number" placeholder="matricule" name="matricule"required><br>
+            <input type="number" placeholder="note" name="note" required>
+        </section>
+        <section>
+            <label for="">Contact informations</label><br>
+            <input type="email" placeholder="email" name="email"><br>
+            <input type="password" name="password" id="passwords" placeholder="Mot de passe" autocomplete="off" required>
+            <span class="toggle-password" id="togglePassword">👁️</span>
+        </section>
+        <% if(locals.option1){ %>
+            <button type="submit">Envoyer</button>
+        <% } %>
+        <% if(locals.option2){ %>
+            <button type="submit">Supprimer</button>
+        <% } %>
+        <% if(locals.error_1){ %>
+            <a href="/administration">Recommencer</a>
+        <% } %>
+    </form>
+    <a href="/">Accueil</a>
+    <a href="/vider" id="clean">vider</a>
+    <a href="/supprimer">Supprimer</a>
+    <footer>
+        <p>&copy; 2024 MiaTpNotes. Tous droits réservés.</p>
+    </footer>
+    </div>
+</body>
+</html>

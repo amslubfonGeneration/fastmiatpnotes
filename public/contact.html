@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous Contacter</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="index.js"></script>
+</head>
+<body>
+    <div class="background-image">
+    <div class="container">
+    <p>
+        <b>Contacter nous</b>
+        <strong>Si vous avez des questions ou commentaires, n'hexiter pas a remplir ce formulaire Merci </strong>
+    </p>
+    <form action="/traitementMail" method="post">
+        <section>
+            <label>Informations personnelles</label><br>
+            <input type="text" name="Nom" placeholder="nom"><br>
+            <input type="text" placeholder="Prenom" name="prenom">
+            <input type="number" placeholder="matricule" name="matricule">
+        </section>
+        <section>
+            <label for="">Contact informations</label><br>
+            <input type="email" placeholder="email" name="email"><br>
+            <input type="number" placeholder="contacts" name="contact">
+        </section>
+        <section>
+            <label for="">Questions/Commentaires</label><br>
+            <textarea name="commentaire" required></textarea>
+        </section>
+        <button>Envoyer</button>
+    </form>
+    </div>
+    <a href="/">Accueil</a>
+     <footer>
+        <p>&copy; 2024 MiaTpNotes. Tous droits réservés.</p>
+    </footer>
+    </div>
+</body>
+</html>

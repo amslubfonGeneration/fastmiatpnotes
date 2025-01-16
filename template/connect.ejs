@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    
+    <title>connect</title>
+       <style>
+       
+        .error{
+            border-radius: 6px;
+            background-color: salmon;
+            text-align: center;
+            border: 2px solid black;
+            font-style: oblique;
+            width: 30%px;
+            margin: 0 auto;
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+        form{
+            margin-bottom:40vh;
+        }
+        .toggle-password {
+            cursor: pointer;
+        }
+        img{
+            display: flex;
+            position: fixed;
+        }
+    </style>
+    <script type="module" src="administration.js"></script>
+    
+</head>
+<body>
+        <div class="background-image">
+            <%if(locals.error){%>
+                <div class="error"> <%= error %> </div>
+            <% } %>
+            <% if(locals.connect){ %>
+                <img src="con2.jpg" alt="img" class="logo connection">
+            <% } %>
+            <form action="" method="post">
+                <label>Information</label><br>
+                <section>
+                    <input type="text" name="id" placeholder="administration_id" required><br>
+                    <input type="password" name="password" id="passwords" placeholder="Mot de passe" autocomplete="off" required>
+                    <span class="toggle-password" id="togglePassword">👁️</span>
+                </section>
+                <button>connecter</button>
+            </form>
+            <a href="/">Accueil</a>
+            <a href="/administration">administration</a>
+            <a href="/newPassword" id="newPassword">Mettre a jour</a>
+            <footer>
+                <p>&copy; 2024 MiaTpNotes. Tous droits réservés.</p>
+            </footer>
+        </div>
+</body>
+</html>

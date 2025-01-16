@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulter_notes TP</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="consule.css">
+    <script type="module" src="consulter.js"></script>
+    <script type="module" src="index.js"></script>
+    <style>   
+        .cercle{
+            background-color:chocolate;
+            margin-left:10px;
+            height:25px;
+            width: 22px;
+            border-radius: 35px;
+            display: inline-block;
+        }
+    </style>
+</head>
+  <div class="background-image">
+    <form class="search-container" action="" method="post">
+        <input type="text" id="search-box" placeholder="Tapez votre matricule" name="id" required>
+        <button id="search-btn">Rechercher</button>
+        <a href="/">Accueil</a>
+    </form>
+    <div class="fixed-text" id="scrollToTop">Cliquez ici pour revenir en haut</div>
+    <% if(locals.recherche){ %>
+        <table>
+            <caption>Informations des étudiants</caption>
+            <thead>
+            <tr>
+                <th>Matricule</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><%= recherche.matricule %></td>
+                <td><%= recherche.nom %></td>
+                <td><%= recherche.prenoms %></td>
+                <td><%= recherche.Note %></td>
+            </tr>
+            </tbody>
+        </table>
+    <% } %> 
+
+    <% if(!locals.recherche){ %>
+        <% if(locals.posts) {%>
+            <% for(const post of posts) { %>
+            <table>
+                <caption>Informations de l'étudiant</caption>
+                <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Note</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><%= post.matricule %></td>
+                    <td><%= post.nom %></td>
+                    <td><%= post.prenoms %></td>
+                    <td>
+                        <%= post.Note %>
+                        <% if(post.Note >= 12){%>
+                            <div class="cercle"></div>
+                        <% } %>
+                        <% if(post.Note >= 15){%>
+                            <div class="cercle"></div>
+                        <% } %>
+                        <% if(post.Note >= 18){%>
+                            <div class="cercle"></div>
+                        <% } %>
+                    </td>
+                </tr>
+                </tbody>
+            <% } %>
+            </table>
+        <% } %>
+    <% } %> 
+    </div>
+    <footer>
+        <p>&copy; 2024 MiaTpNotes. Tous droits réservés.</p>
+    </footer>
+    </body>
+</html>

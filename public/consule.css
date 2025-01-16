@@ -1,0 +1,97 @@
+body{ 
+      margin: 0;
+      height: 100%;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    caption {
+      font-size: 1.5em;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .search-container {
+        margin-bottom: 20px;
+    }
+
+    #search-box {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #search-btn {
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    a{
+      color: black;
+      border: 1px solid black;
+      border-radius:4px ;
+      background-color: #ddd;
+      padding: 10px 10px 10px 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover{
+      background-color:aliceblue;
+    }
+    .fixed-text:hover{
+        background-color: #f2f2f2;
+    }
+
+.background-image {
+    background-image: url('istockphoto-513480122-1024x1024.jpg'); 
+    background-position: center;
+    position:relative;
+}
+
+.fixed-text {
+    position: fixed; /* Reste à la même position */
+    top: 20px; /* Ajustez la position verticale */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Centre le texte */
+    background-color:#ddd; /* Fond semi-transparent */
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.content {
+    padding: 20px;
+    height: 200vh; /* Pour permettre le défilement */
+}
+
+.cercle{
+  border: 1px solid black;
+  border-radius: 100px;
+  width: 5px;
+  height: 5px;
+  margin-top: 5px;
+}
