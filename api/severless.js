@@ -9,9 +9,11 @@ import fastifySecureSession from "@fastify/secure-session"
 import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from "../src/getaction.js"
 import { newPasswordPost, traitementMailPost } from "../src/emailaction.js"
 import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from "../src/postaction.js"
+import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
+import { fileURLToPath } from "node:url"
 
 
-export const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
+const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
 const app = fastify({logger:true})
 app.register(fastifyView,{
     engine: {
