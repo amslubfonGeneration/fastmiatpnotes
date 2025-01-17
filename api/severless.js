@@ -1,18 +1,18 @@
-/*import fastifyFormbody from "@fastify/formbody"
+import fastifyFormbody from "@fastify/formbody"
 import fastifyStatic from "@fastify/static"
 import fastifyView from "@fastify/view"
 import fastify  from "fastify"
 import ejs from 'ejs'
 import fs from 'fs'
-import { join } from "node:path"
-import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
+import { dirname, join } from "node:path"
 import fastifySecureSession from "@fastify/secure-session"
-import { newPasswordPost, traitementMailPost } from "./emailaction.js"
-import { rootDir } from "./config.js"
-import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from "./getaction.js"
-import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from "./postaction.js"
+import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from "../src/getaction.js"
+import { newPasswordPost, traitementMailPost } from "../src/emailaction.js"
+import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from "../src/postaction.js"
 
-const app = fastify()
+
+export const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
+const app = fastify({logger:true})
 app.register(fastifyView,{
     engine: {
         ejs
@@ -30,7 +30,6 @@ app.register(fastifySecureSession,{
     }
 })
 
-//Methode get
 app.get('/administration',administrerGet) 
 app.get('/supprimer', supprimerGet)
 app.get('/vider',viderGet)
@@ -70,12 +69,12 @@ app.setErrorHandler((error,req,res) => {
     }
 })
 
-const start = async () => {
+export default async(req, res)=>{
     try{
-        await app.listen({port:8000})
-    }catch (err){
-        console.error(err)
-        process.exit(1)
+        await app.ready()
+        app.server.emit('request',req,res)
+    }catch(error){
+        console.error("Erreur de démarrage du serveur:",error)
+        res.status(500).send('Erreur serveur interne')
     }
 }
-start()*/

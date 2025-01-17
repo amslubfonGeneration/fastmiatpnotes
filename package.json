@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch api/severless.js",
+    "vercel-build":"echo'Build step (if needed)'"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +26,8 @@
     "fastify-jwt": "^4.2.0",
     "fastify-session": "^5.2.1",
     "fastify-session-redis-store": "^7.1.2",
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16",
+    "pg": "^8.13.1"
   },
   "description": ""
 }
