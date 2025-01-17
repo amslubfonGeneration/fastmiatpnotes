@@ -1,16 +1,16 @@
 import fastifyFormbody from "@fastify/formbody"
+import fastifySecureSession from "@fastify/secure-session"
 import fastifyStatic from "@fastify/static"
 import fastifyView from "@fastify/view"
-import fastify  from "fastify"
+import fastify from "fastify"
 import ejs from 'ejs'
-import fs from 'fs'
+import fs from 'node:fs'
 import { dirname, join } from "node:path"
-import fastifySecureSession from "@fastify/secure-session"
-import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from "../src/getaction.js"
-import { newPasswordPost, traitementMailPost } from "../src/emailaction.js"
-import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from "../src/postaction.js"
-import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
 import { fileURLToPath } from "node:url"
+import {administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet} from "./getaction.js"
+import { newPasswordPost, traitementMailPost } from "./emailaction.js"
+import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from './postaction.js'
+import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
 
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
@@ -50,7 +50,7 @@ app.post('/traitementMail', traitementMailPost)
 app.setErrorHandler((error,req,res) => {
     if(error instanceof recordNotFound){
         res.statusCode = 404
-        return res.view("/template/404.ejs",{
+        return res.view("template/404.ejs",{
             error: error.message
         })
     }if(error instanceof recordNotBase){

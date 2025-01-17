@@ -1,14 +1,14 @@
 {
     "builds":[
         {
-            "src":"api/serverless.js",
+            "src":"src/serverless.js",
             "use":"@vercel/node"
         }
     ],
     "routes":[
         {
             "src":"/(.*)",
-            "dest":"api/serverless.js"
+            "dest":"src/serverless.js"
         }
     ],
     "header":[
