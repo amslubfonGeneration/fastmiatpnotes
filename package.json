@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch api/severless.js",
-    "vercel-build":"echo'Build step (if needed)'"
+    "vercel-build":"echo'Build step (if needed)'",
+    "deploy": "vercel --prod",
+    "deploy:preview":"vercel"
   },
   "keywords": [],
   "author": "",

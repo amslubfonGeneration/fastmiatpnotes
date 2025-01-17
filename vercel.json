@@ -1,8 +1,14 @@
 {
-    "rewrites":[
+    "builds":[
         {
-            "source":"/(.*)",
-            "destination":"/api/serveless.js"
+            "src":"api/serverless.js",
+            "use":"@vercel/node"
+        }
+    ],
+    "routes":[
+        {
+            "source":"/api/(.*)",
+            "destination":"api/serverless.js"
         }
     ]
 }
