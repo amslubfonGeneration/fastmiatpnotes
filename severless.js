@@ -1,8 +1,5 @@
-module.exports = (req,res)=>{
-    res.status(200).send("hello word")
-}
 
-/*import fastifyFormbody from "@fastify/formbody"
+import fastifyFormbody from "@fastify/formbody"
 import fastifySecureSession from "@fastify/secure-session"
 import fastifyStatic from "@fastify/static"
 import fastifyView from "@fastify/view"
@@ -83,4 +80,4 @@ export default async(req, res)=>{
         console.error("Erreur de démarrage du serveur:",error)
         res.status(500).send('Erreur serveur interne')
     }
-}*/
+}
