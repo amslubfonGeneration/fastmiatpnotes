@@ -48,14 +48,10 @@ export const administrerPost = async (req,res)=>{
                     Note: req.body.note
                 }
             ]);
-        if(insertError.message === 'duplicate key value violates unique constraint "etudiants_pkey"'){
-            return res.view('template/404.ejs',{
-                error:'Ce matricule existe déja.'
-            })
-        }
         if(insertError){
             throw new recordNotBase("Il est survenu un probleme.")
-        }
+        }   
+            console.log(req.body.Nom,req.body.Note)
             return res.view('template/email.ejs',{
                 message:`L'Etudiant ${req.body.Nom} ${req.body.prenom} a bien été ajouté`
             })

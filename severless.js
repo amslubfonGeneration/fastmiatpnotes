@@ -1,4 +1,8 @@
-import fastifyFormbody from "@fastify/formbody"
+module.exports = (req,res)=>{
+    res.status(200).send("hello word")
+}
+
+/*import fastifyFormbody from "@fastify/formbody"
 import fastifySecureSession from "@fastify/secure-session"
 import fastifyStatic from "@fastify/static"
 import fastifyView from "@fastify/view"
@@ -7,10 +11,10 @@ import ejs from 'ejs'
 import fs from 'node:fs'
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
-import {administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet} from "./getaction.js"
-import { newPasswordPost, traitementMailPost } from "./emailaction.js"
-import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from './postaction.js'
-import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
+import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from './src/getaction.js'
+import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from './src/postaction.js'
+import { newPasswordPost, traitementMailPost } from './src/emailaction.js'
+import { recordNotBase, recordNotFound } from "./error/recordNotFound.js"
 
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
@@ -79,4 +83,4 @@ export default async(req, res)=>{
         console.error("Erreur de démarrage du serveur:",error)
         res.status(500).send('Erreur serveur interne')
     }
-}
+}*/
