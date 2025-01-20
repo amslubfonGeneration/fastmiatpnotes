@@ -5,10 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch serverless.js",
-    "vercel-build":"echo'Build step (if needed)'",
-    "deploy": "vercel --prod",
-    "deploy:preview":"vercel"
+    "dev": "node serverless.js"
   },
   "keywords": [],
   "author": "",
