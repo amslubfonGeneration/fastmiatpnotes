@@ -1,5 +1,3 @@
 fichier.env
 node_modules/
 secret-key
-.vscode/
-.vercel
