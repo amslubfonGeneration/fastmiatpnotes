@@ -8,10 +8,12 @@ import ejs from 'ejs'
 import fs from 'node:fs'
 import { dirname, join } from "node:path"
 import { fileURLToPath } from "node:url"
-import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from './src/getaction.js'
-import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from './src/postaction.js'
-import { newPasswordPost, traitementMailPost } from './src/emailaction.js'
-import { recordNotBase, recordNotFound } from "./error/recordNotFound.js"
+import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet, viderGet } from './getaction.js'
+import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from './postaction.js'
+import { newPasswordPost, traitementMailPost } from './emailaction.js'
+import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
+const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
+
 
 
 const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
@@ -48,6 +50,7 @@ app.post('/connect', connectPost)
 app.post('/consulter', consulterPost)
 app.post('/traitementMail', traitementMailPost)
 //Getion des erreurs de l'Api
+
 app.setErrorHandler((error,req,res) => {
     if(error instanceof recordNotFound){
         res.statusCode = 404
@@ -71,13 +74,10 @@ app.setErrorHandler((error,req,res) => {
         error: error.message  
     }
 })
+app.listen({host: host, port: 3000 }, function (err, address) {
+  if (err) {
+    app.log.error(err)
+    process.exit(1)
+  }
+})
 
-export default async(req, res)=>{
-    try{
-        await app.ready()
-        app.server.emit('request',req,res)
-    }catch(error){
-        console.error("Erreur de démarrage du serveur:",error)
-        res.status(500).send('Erreur serveur interne')
-    }
-}
