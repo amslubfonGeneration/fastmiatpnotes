@@ -12,6 +12,7 @@ import { administrerGet, connectGet, consulterGet, newPasswordGet, supprimerGet,
 import { administrerPost, connectPost, consulterPost, supprimerPost, viderPost } from './postaction.js'
 import { newPasswordPost, traitementMailPost } from './emailaction.js'
 import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
+import { session_key } from "./config.js"
 const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
 
@@ -29,7 +30,7 @@ app.register(fastifyStatic, {
 app.register(fastifyFormbody)
 app.register(fastifySecureSession,{
     cookieName: 'session',
-    key: fs.readFileSync(join(rootDir, 'secret-key')),
+    key: session_key,
     cookie: {
         path:'/'
     }
