@@ -15,8 +15,7 @@ import { recordNotBase, recordNotFound } from "../error/recordNotFound.js"
 import { session_key } from "./config.js"
 const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
-
-
+const rootDir = dirname(dirname(fileURLToPath(import.meta.url)))
 const app = fastify({logger:true})
 app.register(fastifyView,{
     engine: {
