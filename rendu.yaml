@@ -1,8 +1,23 @@
 services:
-  -type: web
-   name:fast-mia-tpNotes
-   runtime: node
-   plan: free
-   autoDeploy: false
-   buildCommand: npm install
-   startCommand: "node src/server.js"
+- type: web
+  name: fastmiatpnotes
+  runtime: node
+  repo: https://github.com/amslubfonGeneration/fastmiatpnotes
+  plan: free
+  envVars:
+  - key: SESSION_KEY
+    sync: false
+  - key: SUPABASE_URL
+    sync: false
+  - key: SUPABASE_KEY
+    sync: false
+  - key: EMAIL_TO
+    sync: false
+  - key: EMAIL_PASS
+    sync: false
+  - key: EMAIL_USER
+    sync: false
+  region: oregon
+  buildCommand: npm install
+  startCommand: npm start
+version: "1"
